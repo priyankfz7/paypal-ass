@@ -31,6 +31,7 @@ const SignUp = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     dispatch(signUp(user));
+    navigate("/");
   };
   return (
     <Box>
@@ -88,7 +89,7 @@ const SignUp = () => {
           </Stack>
 
           <Button width="full" mt={4} type="submit" backgroundColor={"#73A580"}>
-            Sign In
+            Sign Up
           </Button>
         </form>
       </Box>

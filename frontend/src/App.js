@@ -12,8 +12,10 @@ function App() {
   const dispatch = useDispatch();
   const token = useSelector((state) => state.authManager.token);
   useEffect(() => {
-    dispatch(getTasks(token));
-    dispatch(getSprints(token));
+    if (token) {
+      dispatch(getTasks(token));
+      dispatch(getSprints(token));
+    }
   });
   return (
     <>

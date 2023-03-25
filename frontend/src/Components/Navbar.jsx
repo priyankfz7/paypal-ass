@@ -1,4 +1,4 @@
-import { Box, Button, HStack } from "@chakra-ui/react";
+import { Box, Button, HStack, Text } from "@chakra-ui/react";
 import React from "react";
 import { Link } from "react-router-dom";
 
@@ -10,7 +10,9 @@ const Navbar = () => {
       borderBottom={"1px solid gainsboro"}
     >
       <Box fontSize="28px" fontWeight="bold" color="#73A580">
-        <Link to="/">TaskMate</Link>
+        <Link to="/">
+          <Text className="logo">TaskMate</Text>
+        </Link>
       </Box>
       <Box>
         <Button

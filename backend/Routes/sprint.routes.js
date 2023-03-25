@@ -41,20 +41,4 @@ sprintRouter.delete("/:id", async (req, res) => {
   }
 });
 
-sprintRouter.patch("/:id", async (req, res) => {
-  const { id } = req.params;
-  const { userID, title } = req.body;
-  try {
-    const post = await sprintModel.findById(id);
-    if (post.userID == userID) {
-      await sprintModel.findByIdAndUpdate(id, { title });
-      res.send({ msg: "title has baan updated" });
-    } else {
-      throw new Error("user not matched");
-    }
-  } catch (err) {
-    res.send({ msg: err.message });
-  }
-});
-
 module.exports = { sprintRouter };

@@ -1,32 +1,51 @@
 import axios from "axios";
 import { GET_AND_UPDATE_SPRINT } from "./sprint.action.types";
 
-export const addSprint = (sprint, token) => async (dispatch) => {
+export const getSprints = (token) => async (dispatch) => {
   try {
-    await axios.post(`http://localhost:8080/sprints/create`, sprint, {
-      headers: {
-        "Content-Type": "application/json",
-        authentication: token,
-      },
-    });
-    let res = await axios.get("http://localhost:8080/sprints", {
-      headers: {
-        authentication: token,
-      },
-    });
+    let res = await axios.get(
+      "https://tame-lime-scallop-tutu.cyclic.app/sprints",
+      {
+        headers: {
+          authentication: token,
+        },
+      }
+    );
     dispatch({ type: GET_AND_UPDATE_SPRINT, payload: res.data });
   } catch (e) {
     alert("something went wrong");
   }
 };
-export const getSprints = (token) => async (dispatch) => {
+
+export const addSprint = (sprint, token) => async (dispatch) => {
   try {
-    let res = await axios.get("http://localhost:8080/sprints", {
-      headers: {
-        authentication: token,
-      },
-    });
-    dispatch({ type: GET_AND_UPDATE_SPRINT, payload: res.data });
+    await axios.post(
+      `https://tame-lime-scallop-tutu.cyclic.app/sprints/create`,
+      sprint,
+      {
+        headers: {
+          "Content-Type": "application/json",
+          authentication: token,
+        },
+      }
+    );
+    dispatch(getSprints(token));
+  } catch (e) {
+    alert("something went wrong");
+  }
+};
+
+export const deleteSprint = (id, token) => async (dispatch) => {
+  try {
+    await axios.delete(
+      `https://tame-lime-scallop-tutu.cyclic.app/sprints/${id}`,
+      {
+        headers: {
+          authentication: token,
+        },
+      }
+    );
+    dispatch(getSprints(token));
   } catch (e) {
     alert("something went wrong");
   }
