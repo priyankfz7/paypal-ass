@@ -34,7 +34,13 @@ const Login = () => {
   };
   return (
     <Box>
-      <Box className="signup-form" my={8} m="auto" textAlign="left">
+      <Box
+        className="signup-form"
+        my={8}
+        m="auto"
+        textAlign="left"
+        color="white"
+      >
         <Heading size="lg" mb="12px" textAlign="center">
           Login
         </Heading>
@@ -69,7 +75,7 @@ const Login = () => {
             </Box>
           </Stack>
 
-          <Button width="full" mt={4} type="submit">
+          <Button width="full" mt={4} type="submit" backgroundColor={"#73A580"}>
             Sign In
           </Button>
         </form>
