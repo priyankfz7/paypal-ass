@@ -37,7 +37,7 @@ const SignUp = () => {
     <Box>
       <Box
         className="signup-form"
-        my={8}
+        my={9}
         m="auto"
         textAlign="left"
         color="white"
