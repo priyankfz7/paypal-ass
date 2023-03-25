@@ -1,11 +1,16 @@
 import logo from "./logo.svg";
 import "./App.css";
-import Login from "./Components/Login";
-import SignUp from "./Components/SignUp";
+
 import AllRoutes from "./Components/AllRoutes";
+import Navbar from "./Components/Navbar";
 
 function App() {
-  return <AllRoutes />;
+  return (
+    <>
+      <Navbar />
+      <AllRoutes />
+    </>
+  );
 }
 
 export default App;
