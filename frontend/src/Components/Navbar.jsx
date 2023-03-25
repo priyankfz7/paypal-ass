@@ -1,8 +1,12 @@
 import { Box, Button, HStack, Text } from "@chakra-ui/react";
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { logout } from "../Redux/Auth/auth.action";
 
 const Navbar = () => {
+  const token = useSelector((state) => state.authManager.token);
+  const dispatch = useDispatch();
   return (
     <HStack
       justify="space-between"
@@ -23,15 +27,26 @@ const Navbar = () => {
         >
           <Link to="/login">Login</Link>
         </Button>
-
-        <Button
-          backgroundColor="#3E363F"
-          className="btn-hover"
-          color="white"
-          mr="12px"
-        >
-          <Link to="/signup">Signup</Link>
-        </Button>
+        {token ? (
+          <Button
+            backgroundColor="#3E363F"
+            className="btn-hover"
+            color="white"
+            mr="12px"
+            onClick={() => dispatch(logout())}
+          >
+            Logout
+          </Button>
+        ) : (
+          <Button
+            backgroundColor="#3E363F"
+            className="btn-hover"
+            color="white"
+            mr="12px"
+          >
+            <Link to="/signup">Signup</Link>
+          </Button>
+        )}
       </Box>
     </HStack>
   );

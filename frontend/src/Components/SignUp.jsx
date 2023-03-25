@@ -41,6 +41,7 @@ const SignUp = () => {
         m="auto"
         textAlign="left"
         color="white"
+        w={["85%", "50%", "30%"]}
       >
         <Heading size="lg" mb="12px" textAlign="center">
           SignUp

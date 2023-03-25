@@ -26,7 +26,7 @@ const AddSprint = () => {
   return (
     <>
       <Box
-        w="65%"
+        w={["85%", "75%", "65%"]}
         m="auto"
         border={"2px solid #01A66F"}
         p="20px"

@@ -1,6 +1,10 @@
 import axios from "axios";
-import { USER_LOGIN_SUCCESS } from "./auth.actiontypes";
+import { USER_LOGIN_SUCCESS, USER_LOGOUT } from "./auth.actiontypes";
 const log = async (usercred, password) => {};
+export const logout = () => (dispatch) => {
+  localStorage.setItem("token", "");
+  dispatch({ type: USER_LOGOUT });
+};
 
 export const login = (user) => async (dispatch) => {
   try {

@@ -23,7 +23,10 @@ const Home = () => {
   if (!token) {
     return (
       <div>
-        <Box w="50%" m="auto" mt="20px">
+        <Box w={["90%", "60%", "50%"]} m="auto" mt="20px">
+          <Text fontSize={"30px"} className="logo" align="center" mb="12px">
+            Welcome To TaskMate!!!
+          </Text>
           <Link to="/login">
             <Button
               m="auto"
@@ -35,7 +38,8 @@ const Home = () => {
               Login
             </Button>
           </Link>
-          <Image src={banner} />
+
+          <Image w="100%" src={banner} />
         </Box>
       </div>
     );
@@ -49,7 +53,7 @@ const Home = () => {
       <Box>
         {sprints.map((s, i) => (
           <Box
-            w="65%"
+            w={["85%", "60%", "55%"]}
             m="auto"
             p="14px"
             bgColor={"#01A66F"}

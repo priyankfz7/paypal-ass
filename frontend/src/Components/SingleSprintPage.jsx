@@ -39,14 +39,11 @@ const SingleSprintPage = () => {
   const { sprintID } = useParams();
   const tasks = useSelector((state) => state.taskManager.tasks);
   const token = useSelector((state) => state.authManager.token);
-  const validTasks = tasks.filter((t) => t.sprintID == sprintID);
+  const validTasks = tasks.filter((t) => t.sprintID === sprintID);
   const dispatch = useDispatch();
   const handleDelete = (id) => {
     dispatch(deleteTask(id, token));
   };
-
-  useEffect(() => {}, []);
-
   return (
     <>
       <HStack mt="20px" mb="20px" ml="20px">
@@ -61,15 +58,20 @@ const SingleSprintPage = () => {
         />
       </HStack>
       <div>
-        {tasks.length > 0 ? (
-          <SimpleGrid templateColumns={"1fr 1fr"} w="70%" m="auto" gap="30px">
+        {validTasks.length > 0 ? (
+          <SimpleGrid
+            templateColumns={["1fr", "1fr", "1fr 1fr"]}
+            w="70%"
+            m="auto"
+            gap="30px"
+          >
             {validTasks.map((t) => {
               return (
                 <Box bgColor={t.status ? "#B2D3C2" : "#fafaf0"} p="15px">
                   <HStack justify="space-between" mb="10px">
                     <Text fontSize={"xl"}>{t.title}</Text>
                     <HStack>
-                      <Popover placement="right">
+                      <Popover placement="left">
                         <PopoverTrigger>
                           <Icon
                             as={EditIcon}

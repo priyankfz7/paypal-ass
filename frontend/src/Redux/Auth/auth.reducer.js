@@ -1,4 +1,8 @@
-import { USER_LOGIN_LOADING, USER_LOGIN_SUCCESS } from "./auth.actiontypes";
+import {
+  USER_LOGIN_LOADING,
+  USER_LOGIN_SUCCESS,
+  USER_LOGOUT,
+} from "./auth.actiontypes";
 
 const initialState = {
   token: localStorage.getItem("token") || "",
@@ -12,6 +16,9 @@ export const authReducer = (state = initialState, { type, payload }) => {
     }
     case USER_LOGIN_SUCCESS: {
       return { ...state, token: payload.token, loading: false };
+    }
+    case USER_LOGOUT: {
+      return { ...state, token: "" };
     }
     default: {
       return state;
