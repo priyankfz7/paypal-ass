@@ -27,6 +27,14 @@
 .App-link {
   color: #61dafb;
 }
+.signup-form {
+  width: 30%;
+  margin: auto;
+  position: absolute;
+  top: 50vh;
+  left: 50vw;
+  transform: translate(-50%, -50%);
+}
 
 @keyframes App-logo-spin {
   from {
